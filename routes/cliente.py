@@ -1,10 +1,10 @@
 from flask import Blueprint
 
-cliente_route = Blueprint('home', __name__)
+cliente_route = Blueprint('cliente', __name__)
 
 @cliente_route.route('/')
 def lista_clientes():
- pass
+ return render_template('lista_clientes.html')
 
 
 @cliente_route.route('/', methods=['POST'])
@@ -17,7 +17,7 @@ def form_cliente():
  """
   formulario para cadastrar um cliente
  """
- pass
+ return render_template('form_cliente.html')
 
 
 @cliente_route.route('/<int:cliente_id>')
@@ -25,14 +25,14 @@ def detalhe_cliente(cliente_id):
  """
   exbibir detalhes do cliente
  """
- pass
+ return render_template('detalhe_cliente.html')
 
 @cliente_route.route('/<int:cliente_id>/edit')
 def form_edit_cliente(cliente_id):
  """
   formulario pra editar um cliente
  """
- pass
+ return render_template('form_edit_cliente.html')
 
 
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
