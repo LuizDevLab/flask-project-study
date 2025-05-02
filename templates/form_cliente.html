@@ -1,4 +1,4 @@
-<form class="c-form">
+<form class="c-form" action="{{ url_for('cliente.inserir_cliente') }}" method="post">
   
   <div class="mb-3">
     <label class="form-label">Nome</label>
@@ -7,7 +7,7 @@
 
   <div class="mb-3">
     <label class="form-label">Email</label>
-    <input type="text" class="form-control">
+    <input type="email" class="form-control">
   </div>
   
   
