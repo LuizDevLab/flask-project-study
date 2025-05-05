@@ -15,7 +15,7 @@ def inserir_cliente():
 
  novo_usuario = {
   "id": len(CLIENTES) + 1,
-  "name": data['name'],
+  "nome": data['nome'],
   "email": data['email']
  }
 
@@ -43,11 +43,16 @@ def form_edit_cliente(cliente_id):
  """
   formulario pra editar um cliente
  """
- return render_template('form_edit_cliente.html')
+ cliente = None
+ for c in CLIENTES:
+    if c['id'] == cliente_id:
+     cliente = c
+
+ return render_template('form_cliente.html', cliente=cliente)
 
 
 @cliente_route.route('/<int:cliente_id>/update', methods=['PUT'])
-def update_cliente(cliente_id):
+def atualizar_cliente(cliente_id):
  """
   Atualizar detalhes do cliente
  """
@@ -58,4 +63,7 @@ def deletar_cliente(cliente_id):
  """
   delatar cliente
  """
- pass
+ global CLIENTES
+ CLIENTES = [ c for c in CLIENTES if c['id'] != cliente_id ]
+
+ return {'deleted': 'ok'}
