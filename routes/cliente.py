@@ -38,7 +38,7 @@ def detalhe_cliente(cliente_id):
   exbibir detalhes do cliente
  """
 
- cliente = list(filter(lambda c: c['id'] == cliente_id, CLIENTES))[0]
+ cliente = Cliente.get(Cliente.id == cliente_id)
  return render_template('detalhe_cliente.html', cliente=cliente)
 
 @cliente_route.route('/<int:cliente_id>/edit')
