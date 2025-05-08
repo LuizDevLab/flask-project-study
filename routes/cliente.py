@@ -15,11 +15,10 @@ def inserir_cliente():
  
  data = request.json
 
- novo_usuario = {
-  "id": len(CLIENTES) + 1,
-  "nome": data['nome'],
-  "email": data['email']
- }
+ novo_usuario = Cliente.create(
+   name = data['nome'],
+   email = data['email']
+ )
 
  CLIENTES.append(novo_usuario)
 
