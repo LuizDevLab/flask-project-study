@@ -1,8 +1,11 @@
+from database.database import db
+from database.models.cliente  import Cliente
 from routes.home import home_route
 from routes.cliente import cliente_route
 
 def configure_all(app):
   configure_routes(app)
+  configure_db()
 
 
 def configure_routes(app):
@@ -11,4 +14,5 @@ def configure_routes(app):
 
 
 def configure_db():
-  pass
+  db.connect()
+  db.create_tables([Cliente])

@@ -2,6 +2,7 @@ import datetime
 from peewee import Model, CharField, DateTimeField
 from database.database import db
 
+
 class Cliente(Model):
   name = CharField()
   email = CharField()
